@@ -4,6 +4,7 @@ TutorNest is a platform designed to connect students with personal teachers.
 ## Tech Stack
 
 - Frontend: [React](https://react.dev/)
+- Style: [Material UI]([https://react.dev/](https://mui.com/material-ui/)
 - Backend: [Node.js](https://nodejs.org/docs/latest/api/)
 
 ## Getting Started
