@@ -1,7 +1,6 @@
 # TutorNest
 
-TutorNest is a platform designed to connect students with personal teachers. It aims to bridge the gap between students seeking personalized tutoring and teachers looking for students.
-
+TutorNest is a platform designed to connect students with personal teachers.
 ## Tech Stack
 
 - Frontend: [React](https://react.dev/)
@@ -19,4 +18,4 @@ TutorNest is a platform designed to connect students with personal teachers. It 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/TutorNest.git
+   git clone https://github.com/andresha56/TutorNest.git
