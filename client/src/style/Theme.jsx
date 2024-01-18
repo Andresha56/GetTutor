@@ -13,7 +13,26 @@ const theme = createTheme({
       main: '#ff4081',
     },
   },
-  // other theme options...
+  typography: {
+    fontFamily: "'Poppins', sans-serif",
+    color: '#F0F8FF',
+  },
+  components: {
+    // Override styles for the Button component
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#F0F8FF', 
+          color:"rgba(14, 11, 30, 1)",
+          padding:"10px 15px",
+          '&:hover': {
+            backgroundColor: '#F0F8FF', 
+          },
+          
+        },
+      },
+    },
+  },
 });
 
 export default theme;
