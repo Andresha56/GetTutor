@@ -1,14 +1,15 @@
-
-
-
-import { Container, Typography, Box, Button } from '@mui/material'
-import React from 'react'
-
+import React from 'react';
+import { Container, Typography, Box, Button } from '@mui/material';
+import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined';
 function Hero() {
   return (
     <main>
-      <Container>
-        <Box sx={{marginTop: "3.1rem", textAlign:"center"}}>
+      <Container
+      sx={{
+        height:"calc(100vh - 120px)"
+      }}
+      >
+        <Box marginTop={"3.6rem"}  textAlign={"center"}>
           <Typography variant="h1"
             sx={{
               fontSize: "3.6rem",
@@ -18,13 +19,13 @@ function Hero() {
               margin:"auto",
               fontWeight:"900"
             }}>
-            Match with your perfect personal teacher today with GetTutor
+            Match with your <span style={{color:"cornsilk"}}>perfect personal teacher </span> today with GetTutor
           </Typography>
           <Box
           sx={{display:"flex",flexDirection:"row",gap:3,justifyContent:"center",marginTop:"2.7rem"}}
           >
-          <Button>Signup as Teacher</Button>
-          <Button>Signup as Student</Button>
+          <Button><RocketLaunchOutlinedIcon color="secondary"/>Signup as Teacher</Button>
+          <Button><RocketLaunchOutlinedIcon color="secondary"/> as Student</Button>
           </Box>
         </Box>
       </Container>

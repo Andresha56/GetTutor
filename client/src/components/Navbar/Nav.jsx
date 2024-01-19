@@ -44,7 +44,7 @@ function Nav() {
                 backgroundColor: "#F0F8FF"
               }}
             >
-              Signup
+              Github
               <NavigateNextIcon />
             </Button>
           </Toolbar>
