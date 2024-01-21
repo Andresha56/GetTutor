@@ -19,7 +19,10 @@ function Nav() {
       >
         <Container>
           <Toolbar
-            sx={{ display: "flex", alignItems: "center" }}
+            sx={{ display: "flex", alignItems: "center",height:"70px",borderRadius:"50px",
+            background:"linear-gradient(90deg, rgba(24,3,31,0.6) 0%, rgba(48,44,51,0.6) 48%, rgba(21,10,59,1) 100%)",
+            marginTop:"1rem"
+          }}
           >
             <img
               src="./assets/logo.svg"
