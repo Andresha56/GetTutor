@@ -40,9 +40,6 @@ function Nav() {
               </List>
             </Box>
             <Button
-              sx={{
-                backgroundColor: "#F0F8FF"
-              }}
             >
               Github
               <NavigateNextIcon />

@@ -1,0 +1,8 @@
+
+.txt-grandient{
+    background: linear-gradient(to right, rgba(209,102,247,1) 0%, rgba(70,252,250,1) 100%);
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    border:"1px solid red"
+}

@@ -17,24 +17,21 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "'Poppins', sans-serif",
-    body1: {
       color: '#F0F8FF',
-    },
+      fontSize:"20px"
   },
   components: {
     MuiButton: {
-      
-        defaultProps:{
-          disableRipple:true,
-        },
-      
+      defaultProps: {
+        disableRipple: true,
+      },
       styleOverrides: {
         root: {
-          backgroundColor: '#F0F8FF',
-          color: 'rgba(14, 11, 30, 1)',
+          background: 'linear-gradient(90deg, rgba(209,102,247,1) 0%, rgba(70,252,250,1) 100%)', // Add radial gradient
+          color: '#fff',
           padding: '10px 15px',
           '&:hover': {
-            backgroundColor: '#F0F8FF',
+            background:'linear-gradient(90deg, rgba(209,102,247,1) 0%, rgba(70,252,250,1) 100%)'
           },
         },
       },
