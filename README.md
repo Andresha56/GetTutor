@@ -1,6 +1,6 @@
-# TutorNest
+# GetTutor
 
-TutorNest is a platform designed to connect students with personal teachers.
+GetTutor is a platform designed to connect students with personal teachers.
 ## Tech Stack
 
 - Frontend: [React](https://react.dev/)
