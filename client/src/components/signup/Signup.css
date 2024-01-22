@@ -1,0 +1,22 @@
+
+
+
+input{
+    outline: none;;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin-left: 20px;
+}
+
+img{
+    object-fit: cover;
+    width: 100%;
+}

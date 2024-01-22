@@ -26,7 +26,7 @@ function About() {
             We value one-on-one student-teacher interaction for personalized learning. Unlike group or institutional settings, our platform addresses individual needs by connecting students with tailored teachers. 
           </Typography>
           <Box>
-            <Button>Let's go <ArrowForwardIcon /></Button>
+            <Button >Let's go <ArrowForwardIcon /></Button>
           </Box>
         </Box>
         <Box width="40%" className="about-bgImg" >

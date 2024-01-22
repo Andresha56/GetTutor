@@ -4,7 +4,7 @@ import React from 'react'
 import AppBar from '@mui/material/AppBar';
 import { Box, Container, List, ListItem, Toolbar, Button } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-
+import logo from "../../image/logo.png"
 function Nav() {
   return (
     <>
@@ -25,7 +25,7 @@ function Nav() {
           }}
           >
             <img
-              src="./assets/logo.svg"
+              src={logo}
               alt="logo"
               style={{ width: 120, height: 120, marginRight: 2 }}
             />

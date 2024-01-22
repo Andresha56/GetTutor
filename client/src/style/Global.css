@@ -6,3 +6,17 @@
     background-clip: text;
     border:"1px solid red"
 }
+
+.hr{
+    width: 100%;
+    color:rebeccapurple;
+    height: 0px; 
+    
+}
+
+.flexBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
