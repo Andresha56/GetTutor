@@ -27,6 +27,7 @@ function Signup() {
   // -----handel---form----data--after---submit----
   const handelFormSubmit=(e)=>{
     e.preventDefault();
+    console.log(values)
   }
   return (
     <>
@@ -46,14 +47,6 @@ function Signup() {
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
                 <Button type="submit" >Sign Up</Button><hr/><Button>Sign up with Google</Button>
                 </Box>
-
-                {/* <Stack flexDirection={"row"} alignItems={"center"}>
-                  <hr className="hr" /><span>OR</span><hr className="hr" />
-                </Stack> */}
-
-                {/* <Box display={"flex"} justifyContent={"center"}>
-                  
-                </Box> */}
 
                 <Stack flexDirection={"row"} justifyContent={"center"} mt={"20px"}>
                   <Link sx={{ color: "primary.light" }}>Already have an account? Sign in</Link>
