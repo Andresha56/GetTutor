@@ -29,8 +29,8 @@ function Hero() {
           <Box
             sx={{ display: "flex", flexDirection: "row", gap: 3, justifyContent: "center", marginTop: "2.7rem" }}
           >
-            <Button onClick={()=>navigate("/signup/teachers",{state: { key: "teachers" }})}><RocketLaunchOutlinedIcon />Signup as Teacher</Button>
-            <Button onClick={()=>navigate("/signup/students",{state: { key: "student" }})}><RocketLaunchOutlinedIcon /> as Student</Button>
+            <Button onClick={()=>navigate("user/signup",{state: { key: "teachers" }})}><RocketLaunchOutlinedIcon />Signup as Teacher</Button>
+            <Button onClick={()=>navigate("user/signup",{state: { key: "student" }})}><RocketLaunchOutlinedIcon /> as Student</Button>
           </Box>
         </Box>
       </Container>

@@ -12,8 +12,8 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/signup/students" element={<Signup/>}/>
-        <Route path="/signup/teachers" element={<Signup/>}/>
+          <Route path="user/signup" element={<Signup/>}/>
+        <Route path="user/signup" element={<Signup/>}/>
         </Routes>
       </BrowserRouter>
     </>
