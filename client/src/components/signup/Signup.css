@@ -25,3 +25,9 @@ hr{
     margin: 6px;
     height: 2rem;
 }
+
+p{
+    margin-top: -20px;
+    color: red;
+    margin-left:20px;
+}
