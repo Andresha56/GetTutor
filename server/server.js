@@ -5,6 +5,8 @@ import cors from "cors";
 
 // ----server---
 const server=express();
+// ---mongooseDB----
+connectToDB();
 // ---middle--wares----
 server.use(cors());
 server.use(express.json());
@@ -15,4 +17,3 @@ server.use(userRouter);
 server.listen(5000,console.log("server is running....."));
 
 
-connectToDB();

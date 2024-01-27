@@ -4,9 +4,11 @@ import React, { useEffect } from 'react';
 import signupImg from "../../image/signupImg.png";
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from "react";
+import { checkValidation } from "./SignUpValidation";
+import { sendToDB } from "./sendToDB";
 
-// -----form---initial---values---
-const initialValues = {
+// -----form---initial---formValues---
+const initialformValues = {
   name: "",
   email: "",
   password: ""
@@ -15,16 +17,16 @@ const initialValues = {
 function Signup() {
   const { state } = useLocation();
   // -----states-----
-  const [values, setValues] = useState(initialValues);
+  const [formValues, setFormValues] = useState(initialformValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const [isNavigate,setIsNavigate]=useState(false);
+  const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
   // ---handelFormClick-----
 
-  const handelFormClick = (e) => {
+  const handelFormformValues = (e) => {
     const { name, value } = e.target;
-    setValues({
-      ...values,
+    setFormValues({
+      ...formValues,
       [name]: value,
     });
   }
@@ -33,36 +35,30 @@ function Signup() {
     e.preventDefault();
     // Check for errors and update the error state
     setFormErrors((prevErrors) => {
-      const newErrors = checkValidation(values);
-      console.log(newErrors);
+      const newErrors = checkValidation(formValues);
       return newErrors;
     });
     setIsSubmit(true);
   }
-  // ----check--form--fiellds---and---navigate--accordingly ---
-  useEffect(()=>{
-    if (isSubmit && Object.keys(formErrors).length === 0)setIsNavigate(true);
-  },[formErrors,isSubmit])
+  // ----check--form--fields---and---navigate--accordingly---
+  useEffect(() => {
+    if (isSubmit && Object.keys(formErrors).length === 0) {
+      sendToDB(formValues)
+        .then((response) => {
+          if (response.success === false) {
+            setIsSignUpSuccess(false);
+            setFormErrors((prevErrors) => ({ ...prevErrors, email: response.message }));
+          } else {
+            setIsSignUpSuccess(true);
+            alert("user created successfully");
+            setFormValues(initialformValues);
+          }
+        })
+
+    };
+  }, [formErrors, isSubmit,])
   // ------vaildate---function-----
-  const checkValidation = (formValues) => {
-    const errors = {};
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    const { name, email, password } = formValues;
-    if (!name) {
-      errors.name = "name required!"
-    } else if (name.length < 3) {
-      errors.name = "name must be at least 3 characters long.";
-    };
-    if (!email) errors.email = "email required!"
-    else if (!emailRegex.test(email)) {
-      errors.email = "Invalid email address!";
-    };
-    if (!password) errors.password = "password required!"
-    else if (password.length < 7) {
-      errors.password = "Password must be at least 8 characters long.";
-    };
-    return errors;
-  }
+
   return (
     <>
       <Container sx={{ height: "calc(100vh - 100px)" }}>
@@ -70,16 +66,16 @@ function Signup() {
           <Stack height={"100%"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} gap={3}>
             <Stack width={"40%"}>
               <form method="post" onSubmit={handelFormSubmit} >
-                <label htmlFor="name" >Enter name</label>
-                <input type="text" value={values.name} onChange={handelFormClick} placeholder="name" name="name" id="name" />
-                {formErrors?.name&& <p>{formErrors?.name}</p> }
+                <label htmlFor="name">Enter name</label>
+                <input type="text" value={formValues.name} onChange={handelFormformValues} placeholder="name" name="name" id="name" />
+                {formErrors?.name && <p>{formErrors?.name}</p>}
 
-                <label htmlFor="email" >Enter email</label>
-                <input type="email" value={values.email} onChange={handelFormClick} placeholder="example@gmail.com" name="email" id="email" />
-                {formErrors?.email&& <p>{formErrors?.email}</p> }
+                <label htmlFor="email">Enter email</label>
+                <input type="email" value={formValues.email} onChange={handelFormformValues} placeholder="example@gmail.com" name="email" id="email" />
+                {formErrors?.email && <p>{formErrors?.email}</p>}
                 <label htmlFor="password">Enter password</label>
-                <input type="password" onChange={handelFormClick} value={values.password} placeholder="1234#$abM" name="password" id="password" />
-                {formErrors?.password&& <p>{formErrors?.password}</p> }
+                <input type="password" onChange={handelFormformValues} value={formValues.password} placeholder="1234#$abM" name="password" id="password" />
+                {formErrors?.password && <p>{formErrors?.password}</p>}
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
                   <Button type="submit" >Sign Up</Button><hr /><Button>Sign up with Google</Button>
                 </Box>
