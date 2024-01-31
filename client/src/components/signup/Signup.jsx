@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { checkValidation } from "./SignUpValidation";
 import { sendToDB } from "./sendToDB";
-
+import { useUserContext } from "../../context/UserContext";
 // -----form---initial---formValues---
 const initialformValues = {
   name: "",
@@ -16,6 +16,7 @@ const initialformValues = {
 
 function Signup() {
   const { state } = useLocation();
+  const {setUser}=useUserContext;
   // -----states-----
   const [formValues, setFormValues] = useState(initialformValues);
   const [formErrors, setFormErrors] = useState({});
@@ -50,6 +51,7 @@ function Signup() {
             setFormErrors((prevErrors) => ({ ...prevErrors, email: response.message }));
           } else {
             setIsSignUpSuccess(true);
+            setUser(state);
             alert("user created successfully");
             setFormValues(initialformValues);
           }

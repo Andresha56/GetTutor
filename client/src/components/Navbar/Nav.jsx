@@ -5,6 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import { Box, Container, List, ListItem, Toolbar, Button } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import logo from "../../image/logo.png"
+import { Link } from 'react-router-dom';
 function Nav() {
   return (
     <>
@@ -36,7 +37,7 @@ function Nav() {
                 <ListItem component="ul"
                   sx={{ fontSize: "1.1rem", display: "flex", gap: 2, color: "#F0F8FF" }}
                 >
-                  <ListItem>Home</ListItem>
+                  <ListItem><Link to={"/"}>Home</Link></ListItem>
                   <ListItem>About</ListItem>
                   <ListItem>Explore</ListItem>
                 </ListItem>
