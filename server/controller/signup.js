@@ -1,19 +1,17 @@
 import { User } from "../module/signup.js";
-
+import bcryptjs from "bcryptjs";
 export const signup = async (req, res) => {
   try {
-    console.log(req.body);
-    const { name, email, password } = req.body;
-    await User.create({ name, email, password });
+    let { name, email, password } = req.body;
+    const saltRounds = 10;
+    // Hash the password synchronously
+    const hash = bcryptjs.hashSync(password, saltRounds);
+    await User.create({ name, email, password:hash});
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Error:', error);
-
     if (error.name === 'MongoServerError' && error.code === 11000) {
-      console.log("hiii")
       return res.status(400).json({success:false,message:'Email already used'});
     } else {
-      // Handle other errors
       return res.status(500).json({ success: false, message:'Internal Server Error' });
     }
   }
