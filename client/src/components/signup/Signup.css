@@ -9,10 +9,7 @@ input{
     margin-bottom: 20px;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    background-color:rgba(68, 100, 132, 0.516);
+.signupform{
     padding: 15px 20px;
     border-radius: 5px;
 }
@@ -20,10 +17,7 @@ label{
     margin-left: 20px;
 }
 
-img{
-    object-fit: cover;
-    width: 100%;
-}
+
 
 hr{
     margin: 6px;

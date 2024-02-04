@@ -67,7 +67,7 @@ function Signup() {
         <Stack height={"100%"} width={"80%"} margin={"auto"}>
           <Stack height={"100%"} justifyContent={"center"} alignItems={"center"} flexDirection={"row"} gap={3}>
             <Stack width={"40%"}>
-              <form method="post" onSubmit={handelFormSubmit} >
+              <form className="signupform" method="post" onSubmit={handelFormSubmit} >
                 <label htmlFor="name">Enter name</label>
                 <input type="text" value={formValues.name} onChange={handelFormformValues} placeholder="name" name="name" id="name" />
                 {formErrors?.name && <p>{formErrors?.name}</p>}
