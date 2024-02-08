@@ -52,6 +52,7 @@ function Signup() {
             setFormErrors((prevErrors) => ({ ...prevErrors, email: response.message }));
           } else {
             setIsSignUpSuccess(true);
+  // ---once--user--signup--successfully--update--the--context--accordingly---
             setUser(state);
             alert("user created successfully");
             setFormValues(initialformValues);
