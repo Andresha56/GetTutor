@@ -30,27 +30,29 @@ function getStyles(name, optionsName, theme) {
   };
 }
 
-export default function MultiplSelectChip({options}) {
+export default function MultiplSelectChip({options,name,hadelMultiplSelectChip}) {
   const theme = useTheme();
   const [optionsName, setOptionsName] = React.useState([]);
 
   const handleChange =(event) => {
-    const {
-      target: { value },
-    } = event;
+    console.log(event.target);
+    hadelMultiplSelectChip(event.target)
+    const {value} = event.target;
     setOptionsName(
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === 'string' ? value.split(',') :value,
     );
+    
   };
 
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label" sx={{color:"white"}}>choose</InputLabel>
+        <InputLabel id="demo-multiple-chip-label" sx={{color:"white"}}>select</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
+          name={name} 
           value={optionsName}
           onChange={handleChange}
           sx={{

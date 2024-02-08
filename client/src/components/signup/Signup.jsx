@@ -1,7 +1,7 @@
 import "./Signup.css";
 import { Container, Box, Button, Stack, } from '@mui/material';
 import React, { useEffect } from 'react';
-import signupImg from "../../image/signupImg.png";
+import signup from "../../image/signup.png";
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { checkValidation } from "./SignUpValidation";
@@ -24,7 +24,7 @@ function Signup() {
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
   // ---handelFormClick-----
 
-  const handelFormformValues = (e) => {
+  const handelFormValues = (e) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
@@ -44,6 +44,7 @@ function Signup() {
   // ----check--form--fields---and---navigate--accordingly---
   useEffect(() => {
     if (isSubmit && Object.keys(formErrors).length === 0) {
+      // -----if---everrything---is--correct---send--to--DB-----
       sendToDB(formValues)
         .then((response) => {
           if (response.success === false) {
@@ -69,14 +70,14 @@ function Signup() {
             <Stack width={"40%"}>
               <form className="signupform" method="post" onSubmit={handelFormSubmit} >
                 <label htmlFor="name">Enter name</label>
-                <input type="text" value={formValues.name} onChange={handelFormformValues} placeholder="name" name="name" id="name" />
+                <input type="text" value={formValues.name} onChange={handelFormValues} placeholder="name" name="name" id="name" />
                 {formErrors?.name && <p>{formErrors?.name}</p>}
 
                 <label htmlFor="email">Enter email</label>
-                <input type="email" value={formValues.email} onChange={handelFormformValues} placeholder="example@gmail.com" name="email" id="email" />
+                <input type="email" value={formValues.email} onChange={handelFormValues} placeholder="example@gmail.com" name="email" id="email" />
                 {formErrors?.email && <p>{formErrors?.email}</p>}
                 <label htmlFor="password">Enter password</label>
-                <input type="password" onChange={handelFormformValues} value={formValues.password} placeholder="1234#$abM" name="password" id="password" />
+                <input type="password" onChange={handelFormValues} value={formValues.password} placeholder="1234#$abM" name="password" id="password" />
                 {formErrors?.password && <p>{formErrors?.password}</p>}
                 <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
                   <Button type="submit" >Sign Up</Button><hr /><Button>Sign up with Google</Button>
@@ -89,7 +90,7 @@ function Signup() {
             </Stack>
 
             <Box width={"40%"}>
-              <img src={signupImg} alt="signup" />
+              <img src={signup} alt="signup" />
             </Box>
           </Stack>
         </Stack>
