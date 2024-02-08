@@ -66,7 +66,7 @@ function Profile() {
     const { user } = useUserContext();
     const placeholder = 
     user === 'teacher'
-     ? 
+    ? 
     "Please write a short message introducing yourself, explaining how you can be a good teacher..." 
     :
     " please write a short description...";
