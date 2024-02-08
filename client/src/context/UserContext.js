@@ -1,7 +1,4 @@
 
-
-
-
 import React, { useState } from 'react'
 import { createContext, useContext } from 'react';
 const UsersContext = createContext(null);
@@ -11,7 +8,7 @@ export function useUserContext() {
 }
 
 function UserContext({ children }) {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState("teacher");
     return (
         <UsersContext.Provider value={{ user, setUser }}>
             {children}
